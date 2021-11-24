@@ -1,0 +1,42 @@
+work_dir: ./work_dir/ntu120/xsub/rsgcn_joint_motion
+model_saved_name: ./runs/ntu120_cs_rsgcn_joint_motion
+# feeder
+feeder: feeders.feeder.Feeder
+train_feeder_args:
+  data_path: ./data/ntu120/xsub/train_data_joint_motion.npy
+  label_path: ./data/ntu120/xsub/train_label.pkl
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: -1
+  normalization: False
+
+test_feeder_args:
+  data_path: ./data/ntu120/xsub/val_data_joint_motion.npy
+  label_path: ./data/ntu120/xsub/val_label.pkl
+
+# model
+model: model.rsgcn.Model
+model_args:
+  num_class: 120
+  num_point: 25
+  num_person: 2
+  graph: graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+#optim
+weight_decay: 0.0002
+base_lr: 0.1
+step: [40, 50]
+
+
+# training
+device: [0, 1]
+batch_size: 60
+test_batch_size: 64
+num_epoch: 60
+nesterov: True
+only_train_part: True
+only_train_epoch: 2
