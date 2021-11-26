@@ -1,9 +1,5 @@
-# 2s-hgcn
-Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition in CVPR19
-
-# Note
-
-PyTorch version should be 0.3! For PyTorch0.4 or higher, the codes need to be modified. 
+# RSGCN
+Ration Selective Grpah Convolutional Network 
 
 # Data Preparation
 
